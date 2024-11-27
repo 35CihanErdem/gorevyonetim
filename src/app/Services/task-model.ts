@@ -4,7 +4,7 @@ export class TaskItems {
   description: string;
   creationDate: Date;
   status: boolean;
-  endDate: Date; // Bitiş tarihi ekleniyor
+  endDate: Date;
 
   constructor(id: number, name: string, description: string, creationDate: Date, status: boolean, endDate: Date) {
     this.id = id;
@@ -12,10 +12,12 @@ export class TaskItems {
     this.description = description;
     this.creationDate = creationDate;
     this.status = status;
-    this.endDate = endDate; // endDate parametresi de ekleniyor
+    this.endDate = endDate;
   }
 }
 
 export class Model {
-  items: TaskItems[] = []; // TaskItems dizisi
+  items: TaskItems[] = [
+    new TaskItems(1, 'Görev 1', 'Açıklama 1', new Date(), true, new Date('2024-12-31'))
+  ];
 }

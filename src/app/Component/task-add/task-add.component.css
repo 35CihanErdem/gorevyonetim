@@ -1,45 +1,96 @@
+/* Form öğeleri arasındaki boşlukları düzenleyelim */
 .p-field {
-    margin-bottom: 1rem;
-  }
-  
-  .p-inputtext, .p-textarea, .p-calendar {
+  margin-bottom: 1.5rem;  /* Alanlar arasında daha fazla boşluk */
+}
+
+.p-inputtext, .p-textarea, .p-calendar {
+  width: 100%;  /* Tüm öğelerin genişliğini %100 yapalım */
+  padding: 0.8rem; /* Giriş alanları için iç boşluk */
+  font-size: 1rem; /* Giriş alanları için font büyüklüğünü arttıralım */
+  border-radius: 5px; /* Köşeleri yuvarlayalım */
+  box-sizing: border-box; /* Padding, margin alanlarını doğru şekilde hesaplasın */
+}
+
+/* Input etiketlerini hizalayalım */
+label {
+  font-size: 1.1rem; /* Etiket fontunu büyütüyoruz */
+  font-weight: 600; /* Etiketleri biraz daha kalın yapalım */
+  display: block; /* Etiketi bloğa çeviriyoruz, böylece tam olarak input'un üstüne gelir */
+  margin-bottom: 0.5rem; /* Etiket ile input arasında boşluk */
+  text-align: center;  /* Etiketi ortalayalım */
+  width: 100%;  /* Etiket genişliği %100 */
+}
+
+/* Button genişliğini ve hizalanmasını iyileştirelim */
+.p-button {
+  width: auto;  /* Butonun genişliği içeriğine göre ayarlanacak */
+  margin-top: 2rem; /* Üst boşluk ekleyelim */
+  padding: 0.8rem 2rem; /* Buton içindeki yazıyı ortalayalım */
+  font-size: 1rem; /* Buton yazı büyüklüğünü artırıyoruz */
+}
+
+/* Takvim boyutunu büyütelim ve hizalayalım */
+.p-calendar {
+  font-size: 1rem; /* Takvim fontunu büyütüyoruz */
+  width: 100%; /* Takvimi genişlik olarak %100 yapalım */
+  padding: 0.8rem; /* İç boşluk */
+  border-radius: 5px; /* Köşeleri yuvarlayalım */
+}
+
+/* Flexbox düzeni */
+.p-d-flex {
+  display: flex;
+}
+
+.p-jc-center {
+  justify-content: center;
+}
+
+.p-ai-center {
+  align-items: center;
+}
+
+.p-text-center {
+  text-align: center;
+}
+
+/* Açıklama alanı için daha fazla satır ekleyelim */
+.p-textarea {
+  font-size: 1rem;
+  padding: 0.8rem;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: vertical;  /* Kullanıcıya açıklama alanını dikey olarak büyütme imkanı verelim */
+}
+
+/* Inline takvim için daha küçük boyutlar */
+.custom-calendar {
+  font-size: 1rem;
+  width: 100%; /* Takvimi %100 genişlikte yapalım */
+  max-width: 100%; /* Maksimum genişliği %100 yapalım */
+  padding: 0.8rem;
+}
+
+/* Responsive düzenleme */
+@media screen and (max-width: 768px) {
+  /* Mobil cihazlar için grid yapısını %100 yapalım */
+  .p-col-12 {
     width: 100%;
   }
-  
+
+  /* Form elemanlarının fontunu biraz küçültelim */
+  .p-inputtext, .p-textarea, .p-calendar {
+    font-size: 0.9rem;
+  }
+
+  /* Etiket font boyutunu küçültelim */
+  label {
+    font-size: 1rem;
+  }
+
+  /* Buton için de biraz küçültme yapalım */
   .p-button {
-    width: auto; /* Butonun genişliği içerik kadar olsun */
-    margin-top: 1rem;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
   }
-  
-  .p-d-flex {
-    display: flex;
-  }
-  
-  .p-jc-center {
-    justify-content: center;
-  }
-  
-  .p-ai-center {
-    align-items: center;
-  }
-  
-  .p-text-center {
-    text-align: center;
-  }
-  
-  .p-mt-2 {
-    margin-top: 2rem;
-  }
-  
-  .p-mt-2 {
-    margin-top: 2rem;
-  }
-  .custom-calendar {
-  font-size: 0.9rem;
-  width: 250px;
-}
-/* Bitiş tarihi için takvim boyutunu küçültmek */
-.p-calendar {
-  font-size: 0.9rem; /* Takvim font boyutunu küçültüyoruz */
-  width: 100px; /* Takvim genişliğini ayarlıyoruz */
 }

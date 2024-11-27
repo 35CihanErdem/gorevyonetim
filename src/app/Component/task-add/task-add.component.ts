@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { TaskService } from '../../Services/task-services';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { TaskItems } from '../../Services/task-model';
+import { TaskItems,Model } from '../../Services/task-model';
 import { CalendarModule } from 'primeng/calendar';
 @Component({
   selector: 'app-task-add',
@@ -13,11 +13,16 @@ import { CalendarModule } from 'primeng/calendar';
   styleUrl: './task-add.component.css'
 })
 export class TaskAddComponent {
+  model: Model = new Model();
+  minDate: Date;
   taskName: string = '';
   taskDescription: string = '';
   endDate: Date | null = null;
 
-  constructor(private router: Router, private taskService: TaskService) {}
+  constructor(private router: Router, private taskService: TaskService) 
+  {
+    this.minDate = new Date(); 
+    }
 
   addTask() {
     if (this.taskName && this.taskDescription && this.endDate) {

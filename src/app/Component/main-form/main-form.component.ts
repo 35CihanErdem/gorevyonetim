@@ -18,13 +18,17 @@ import { TaskService } from '../../Services/task-services';
   providers: [DatePipe]
 })
 export class MainFormComponent implements OnInit {
+  
+  model: Model = new Model();
   navigateToAddTask() {
     this.router.navigate(['/task-add']); // Görev ekleme sayfasına yönlendiriyoruz
   }
 
   tasks: TaskItems[] = [];
 
-  constructor(private router: Router, private taskService: TaskService, private datePipe: DatePipe) {}
+  constructor(private router: Router, private taskService: TaskService, private datePipe: DatePipe) 
+  { this.model.items.push(new TaskItems(1, 'Görev 1', 'Açıklama 1', new Date(), true, new Date('2024-12-31')));
+  }
 
   ngOnInit() {
     // Sayfa yüklendiğinde görevleri alıyoruz
