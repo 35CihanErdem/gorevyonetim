@@ -1,0 +1,45 @@
+.p-field {
+    margin-bottom: 1rem;
+  }
+  
+  .p-inputtext, .p-textarea, .p-calendar {
+    width: 100%;
+  }
+  
+  .p-button {
+    width: auto; /* Butonun genişliği içerik kadar olsun */
+    margin-top: 1rem;
+  }
+  
+  .p-d-flex {
+    display: flex;
+  }
+  
+  .p-jc-center {
+    justify-content: center;
+  }
+  
+  .p-ai-center {
+    align-items: center;
+  }
+  
+  .p-text-center {
+    text-align: center;
+  }
+  
+  .p-mt-2 {
+    margin-top: 2rem;
+  }
+  
+  .p-mt-2 {
+    margin-top: 2rem;
+  }
+  .custom-calendar {
+  font-size: 0.9rem;
+  width: 250px;
+}
+/* Bitiş tarihi için takvim boyutunu küçültmek */
+.p-calendar {
+  font-size: 0.9rem; /* Takvim font boyutunu küçültüyoruz */
+  width: 100px; /* Takvim genişliğini ayarlıyoruz */
+}

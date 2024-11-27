@@ -1,0 +1,9 @@
+/* PrimeFlex ile düzenleme */
+.p-table {
+    width: 100%;
+  }
+  /* Tamamlanmış görevler için satır rengini yeşil yapıyoruz */
+.task-completed {
+  background-color: #d4edda; /* Açık yeşil arka plan */
+  color: #155724; /* Yeşil yazı rengi */
+}

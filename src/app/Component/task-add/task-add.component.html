@@ -1,0 +1,42 @@
+<div class="p-d-flex p-jc-center p-ai-center p-mt-5" style="min-height: 80vh;">
+  <div class="p-col-12 p-md-6">
+    <h2 class="p-text-center">Görev Ekle</h2>
+
+    <div class="p-field">
+      <label for="taskName" style="padding-left: 20px; padding-right: 20px;">Görev Adı </label>
+      <input 
+        id="taskName"   
+        type="text" 
+        pInputText 
+        [(ngModel)]="taskName" 
+        required 
+        placeholder="Görev Adı">
+    </div>
+
+    <div class="p-field">
+      <label for="taskDescription" style="padding-left: 30px; padding-right: 20px; margin-bottom: 20px;">Açıklama</label>
+      <textarea 
+        id="taskDescription" 
+        pInputTextarea 
+        [(ngModel)]="taskDescription" 
+        required 
+        placeholder="Görev Açıklaması" 
+        rows="1"></textarea>
+    </div>
+    <div class="p-field">
+      <label for="endDate">Bitiş Tarihi</label>
+      <p-calendar [(ngModel)]="endDate" [showTime]="false" [inline]="false"></p-calendar>
+
+    </div>
+    
+    <div class="p-d-flex p-jc-center p-mt-3">
+      <button 
+        pButton 
+        type="button" 
+        label="Görevi Ekle" 
+        class="p-button-success" 
+        (click)="addTask()">
+      </button>
+    </div>
+  </div>
+</div>

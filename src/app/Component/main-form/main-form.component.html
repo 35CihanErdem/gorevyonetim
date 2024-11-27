@@ -1,0 +1,41 @@
+<div class="p-grid p-justify-center">
+  <div class="p-col-12 p-md-8">
+    <button 
+      pButton 
+      type="button" 
+      label="Görev Ekle" 
+      class="p-button-success p-mb-3" 
+      (click)="navigateToAddTask()">
+    </button>
+
+    <p-table [value]="tasks" [paginator]="true" [rows]="5" [responsiveLayout]="'scroll'">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Görev Adı</th>
+          <th>Açıklama</th>
+          <th>Oluşturulma Tarihi</th>
+          <th>Bitiş Tarihi</th>  <!-- Bitiş tarihi başlığını ekledik -->
+          <th>Durum</th>
+          <th>Sil</th>
+          
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-task>
+        <tr>
+          <td>{{ task.name }}</td>
+          <td>{{ task.description }}</td>
+          <td>{{ formatDate(task.creationDate) }}</td>
+          <td>{{ formatDate(task.endDate) }}</td> <!-- Bitiş tarihini burada gösteriyoruz -->
+          <td>
+            <p-checkbox [(ngModel)]="task.status" binary="true" (onclick)="toggleTaskStatus(task)"></p-checkbox>
+          </td>
+          <td>
+            <button pButton type="button" label="Sil" icon="pi pi-trash" class="p-button-danger" (click)="deleteTask(task)"></button>
+          </td>
+          
+        </tr>
+      </ng-template>
+    </p-table>
+    
+  </div>
+</div>
