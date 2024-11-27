@@ -7,3 +7,24 @@
   background-color: #d4edda; /* Açık yeşil arka plan */
   color: #155724; /* Yeşil yazı rengi */
 }
+.p-grid {
+  display: flex;
+  align-items: center;
+}
+
+.p-col-12 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.p-d-flex {
+  display: flex;
+}
+
+.p-align-center {
+  align-items: center;
+}
+
+.p-justify-end {
+  justify-content: flex-end;
+}
