@@ -32,8 +32,8 @@ export class TaskAddComponent {
         this.taskName,
         this.taskDescription,
         new Date(), // Şu anki tarih
-        false, // Başlangıçta görev tamamlanmadı
-        this.endDate // Bitiş tarihini burada ekliyoruz
+        false, 
+        this.endDate 
       );
 
       // Görevi ekliyoruz

@@ -14,7 +14,7 @@ import { CalendarModule } from 'primeng/calendar';
   styleUrl: './task-edit.component.css'
 })
 export class TaskEditComponent implements OnInit {
-  selectedTask: TaskItems | null = null;  // Düzenlenecek görev
+  selectedTask: TaskItems | null = null; 
   minDate: Date = new Date();  // Takvimin minimum tarihini ayarlıyoruz
 
   constructor(private router: Router, private taskService: TaskService) {}
@@ -22,7 +22,7 @@ export class TaskEditComponent implements OnInit {
   ngOnInit() {
     // TaskService'ten selectedTask alınır
     this.selectedTask = this.taskService.selectedTask;
-    console.log(this.selectedTask);  // Konsola yazdırarak doğruluğunu kontrol edin
+    console.log(this.selectedTask); 
   }
 
   updateTask() {

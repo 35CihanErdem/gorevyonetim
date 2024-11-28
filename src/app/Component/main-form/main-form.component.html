@@ -1,5 +1,5 @@
 <div class="p-grid p-justify-between">
-  <!-- Sol Taraf: Görev Ekleme Butonu -->
+  <!--  Görev Ekleme Butonu -->
   <div class="p-col-12 p-md-4">
     <button pButton type="button" label="Görev Ekle" icon="pi pi-plus" 
       (click)="navigateToAddTask()" 
@@ -8,7 +8,7 @@
     </button>
   </div>
 
-  <!-- Sağ Taraf: Filtreleme ve Sıralama Butonları -->
+  <!--Filtreleme ve Sıralama Butonları -->
   <div class="p-col-12 p-md-8 p-d-flex p-justify-end">
     <button pButton type="button" label="Tamamlanan Görevler" icon="pi pi-check" 
       (click)="filterCompletedTasks()" 
@@ -35,7 +35,7 @@
       <th>Bitiş Tarihi</th>
       <th>Durum</th>
       <th>Sil</th>
-      <th>Düzenle</th> <!-- Düzenle başlığı -->
+      <th>Düzenle</th> 
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-task>

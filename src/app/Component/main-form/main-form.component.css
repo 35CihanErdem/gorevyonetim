@@ -1,12 +1,15 @@
-/* PrimeFlex ile düzenleme */
+/* 1. Tablo Ayarları */
 .p-table {
-    width: 100%;
-  }
-  /* Tamamlanmış görevler için satır rengini yeşil yapıyoruz */
-.task-completed {
-  background-color: #d4edda; /* Açık yeşil arka plan */
-  color: #155724; /* Yeşil yazı rengi */
+  width: 100%;
 }
+
+/* 2. Görev Tamamlama Durumu (Completed Tasks) */
+.task-completed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+/* 3. Flexbox Düzenlemeleri */
 .p-grid {
   display: flex;
   align-items: center;
@@ -28,70 +31,73 @@
 .p-justify-end {
   justify-content: flex-end;
 }
+
+/* 4. Küçük Boyutlu Butonlar */
 .p-d-flex .p-button-sm {
-  font-size: 0.9rem; /* Buton metnini biraz küçült */
-  padding: 0.5rem 1rem; /* Butonun içine biraz daha az boşluk ekle */
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
 }
 
 .p-d-flex .p-button-sm + .p-button-sm {
-  margin-left: 10px; /* Butonlar arasında boşluk ekle */
+  margin-left: 10px;
 }
+
+/* 5. Responsive Ayarlamalar */
 @media screen and (max-width: 768px) {
-  /* Butonlar arasındaki mesafeyi biraz daha açalım */
+  /* 5.1. Küçük Ekran Buton Düzenlemeleri */
   .p-d-flex .p-button-sm {
-    font-size: 0.8rem; /* Buton metni küçük ekranlarda daha küçük olsun */
-    padding: 0.4rem 0.8rem; /* Buton içindeki padding'i küçült */
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
   }
 
   .p-d-flex .p-button-sm + .p-button-sm {
-    margin-left: 10px; /* Butonlar arasına biraz daha boşluk ekle */
+      margin-left: 10px;
   }
 
-  /* Görev ekle butonunu daha geniş yapalım */
+  /* 5.2. Görev Ekleme Buton Düzenlemeleri */
   .p-col-12.p-md-4 button {
-    width: 100%; /* Buton genişliğini mobilde %100 yapalım */
-    font-size: 1rem; /* Buton yazı boyutunu büyüt */
+      width: 100%;
+      font-size: 1rem;
   }
 
-  /* Görev Tablosu */
+  /* 5.3. Tablo Düzenlemeleri */
   p-table {
-    font-size: 0.9rem; /* Tablo metnini küçült */
+      font-size: 0.9rem;
   }
 
-  /* Tablo başlıkları ve içerik daha küçük ekranlarda daha küçük yazı tipiyle görünsün */
   p-table th, p-table td {
-    font-size: 0.9rem;
-    padding: 0.5rem; /* Hücre içindeki padding'i küçült */
+      font-size: 0.9rem;
+      padding: 0.5rem;
   }
 
-  /* Başlık ve etiket boyutları */
+  /* 5.4. Etiket Düzenlemeleri */
   label {
-    font-size: 1rem; /* Etiketlerin boyutunu mobilde küçült */
-    margin-bottom: 0.5rem; /* Etiket ve input arasına boşluk ekle */
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
   }
 
-  /* Form elemanları genişlik ayarlarını yapalım */
+  /* 5.5. Form Elemanları Küçültme */
   .p-inputtext, .p-textarea, .p-calendar {
-    font-size: 0.9rem; /* Form elemanlarının yazı boyutunu küçük ekranlarda küçült */
-    width: 100%; /* Genişliği %100 yapalım */
-    padding: 0.6rem; /* İç boşluğu biraz küçültelim */
+      font-size: 0.9rem;
+      width: 100%;
+      padding: 0.6rem;
   }
 
-  /* Flex düzeni ayarları */
+  /* 5.6. Flexbox Yönlendirme */
   .p-d-flex {
-    flex-direction: column; /* Flex elemanlarını dikeyde hizalayalım */
+      flex-direction: column;
   }
 
-  /* Sıralama ve filtreleme butonları */
+  /* 5.7. Sağ Kolon Düzenlemeleri */
   .p-col-12.p-md-8 {
-    width: 100%; /* Sağdaki filtreleme butonlarının genişliğini %100 yapalım */
-    margin-top: 1rem; /* Üst boşluk ekleyelim */
-    justify-content: center; /* Butonları ortalayalım */
+      width: 100%;
+      margin-top: 1rem;
+      justify-content: center;
   }
 
-  /* Görev kartlarını mobilde daha düzgün gösterelim */
+  /* 5.8. Tablo Satır Düzenlemeleri */
   .p-table .p-row {
-    display: block; /* Tablo satırlarını blok olarak düzenleyelim */
-    margin-bottom: 1rem; /* Satırların arasına boşluk ekleyelim */
+      display: block;
+      margin-bottom: 1rem;
   }
 }

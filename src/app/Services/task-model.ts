@@ -17,6 +17,5 @@ export class TaskItems {
 }
 
 export class Model {
-  items: TaskItems[] = [
-  ];
+  items: TaskItems[] = [];
 } 

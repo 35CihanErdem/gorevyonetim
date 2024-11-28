@@ -1,43 +1,43 @@
-/* Form öğeleri arasındaki boşlukları düzenleyelim */
+/* 1. Form Elemanları */
 .p-field {
-  margin-bottom: 1.5rem;  /* Alanlar arasında daha fazla boşluk */
+  margin-bottom: 1.5rem;
 }
 
 .p-inputtext, .p-textarea, .p-calendar {
-  width: 100%;  /* Tüm öğelerin genişliğini %100 yapalım */
-  padding: 0.8rem; /* Giriş alanları için iç boşluk */
-  font-size: 1rem; /* Giriş alanları için font büyüklüğünü arttıralım */
-  border-radius: 5px; /* Köşeleri yuvarlayalım */
-  box-sizing: border-box; /* Padding, margin alanlarını doğru şekilde hesaplasın */
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-/* Input etiketlerini hizalayalım */
+/* 2. Etiketler (Labels) */
 label {
-  font-size: 1.1rem; /* Etiket fontunu büyütüyoruz */
-  font-weight: 600; /* Etiketleri biraz daha kalın yapalım */
-  display: block; /* Etiketi bloğa çeviriyoruz, böylece tam olarak input'un üstüne gelir */
-  margin-bottom: 0.5rem; /* Etiket ile input arasında boşluk */
-  text-align: center;  /* Etiketi ortalayalım */
-  width: 100%;  /* Etiket genişliği %100 */
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  width: 100%;
 }
 
-/* Button genişliğini ve hizalanmasını iyileştirelim */
+/* 3. Butonlar */
 .p-button {
-  width: auto;  /* Butonun genişliği içeriğine göre ayarlanacak */
-  margin-top: 2rem; /* Üst boşluk ekleyelim */
-  padding: 0.8rem 2rem; /* Buton içindeki yazıyı ortalayalım */
-  font-size: 1rem; /* Buton yazı büyüklüğünü artırıyoruz */
+  width: auto;
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
 }
 
-/* Takvim boyutunu büyütelim ve hizalayalım */
+/* 4. Takvim (Calendar) */
 .p-calendar {
-  font-size: 1rem; /* Takvim fontunu büyütüyoruz */
-  width: 100%; /* Takvimi genişlik olarak %100 yapalım */
-  padding: 0.8rem; /* İç boşluk */
-  border-radius: 5px; /* Köşeleri yuvarlayalım */
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 5px;
 }
 
-/* Flexbox düzeni */
+/* 5. Flexbox Düzenlemeleri */
 .p-d-flex {
   display: flex;
 }
@@ -54,102 +54,97 @@ label {
   text-align: center;
 }
 
-/* Açıklama alanı için daha fazla satır ekleyelim */
+/* 6. Textarea */
 .p-textarea {
   font-size: 1rem;
   padding: 0.8rem;
   border-radius: 5px;
   box-sizing: border-box;
-  resize: vertical;  /* Kullanıcıya açıklama alanını dikey olarak büyütme imkanı verelim */
+  resize: vertical;
 }
 
-/* Inline takvim için daha küçük boyutlar */
+/* 7. Özel Takvim (Custom Calendar) */
 .custom-calendar {
   font-size: 1rem;
-  width: 100%; /* Takvimi %100 genişlikte yapalım */
-  max-width: 100%; /* Maksimum genişliği %100 yapalım */
+  width: 100%;
+  max-width: 100%;
   padding: 0.8rem;
 }
 
-/* Responsive düzenleme */
+/* 8. Responsive Ayarlamalar */
 @media screen and (max-width: 768px) {
-  /* Mobil cihazlar için grid yapısını %100 yapalım */
+  /* 8.1. Genel Düzenlemeler */
   .p-col-12 {
-    width: 100%;
+      width: 100%;
   }
 
-  /* Form elemanlarının fontunu biraz küçültelim */
   .p-inputtext, .p-textarea, .p-calendar {
-    font-size: 0.9rem;
+      font-size: 0.9rem;
   }
 
-  /* Etiket font boyutunu küçültelim */
   label {
-    font-size: 1rem;
+      font-size: 1rem;
   }
 
-  /* Buton için de biraz küçültme yapalım */
   .p-button {
-    font-size: 0.9rem;
-    padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.5rem;
   }
-}
-@media screen and (max-width: 768px) {
-  /* Butonlar arasındaki mesafeyi biraz daha açalım */
+
+  /* 8.2. Buton Küçültme */
   .p-d-flex .p-button-sm {
-    font-size: 0.8rem; /* Buton metni küçük ekranlarda daha küçük olsun */
-    padding: 0.4rem 0.8rem; /* Buton içindeki padding'i küçült */
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
   }
 
   .p-d-flex .p-button-sm + .p-button-sm {
-    margin-left: 10px; /* Butonlar arasına biraz daha boşluk ekle */
+      margin-left: 10px;
   }
 
-  /* Görev ekle butonunu daha geniş yapalım */
+  /* 8.3. Görev Ekleme Buton Düzenlemesi */
   .p-col-12.p-md-4 button {
-    width: 100%; /* Buton genişliğini mobilde %100 yapalım */
-    font-size: 1rem; /* Buton yazı boyutunu büyüt */
+      width: 100%;
+      font-size: 1rem;
   }
 
-  /* Görev Tablosu */
+  /* 8.4. Tablo Düzenlemeleri */
   p-table {
-    font-size: 0.9rem; /* Tablo metnini küçült */
+      font-size: 0.9rem;
   }
 
-  /* Tablo başlıkları ve içerik daha küçük ekranlarda daha küçük yazı tipiyle görünsün */
   p-table th, p-table td {
-    font-size: 0.9rem;
-    padding: 0.5rem; /* Hücre içindeki padding'i küçült */
+      font-size: 0.9rem;
+      padding: 0.5rem;
   }
 
-  /* Başlık ve etiket boyutları */
+  /* 8.5. Etiketler Düzenlemesi */
   label {
-    font-size: 1rem; /* Etiketlerin boyutunu mobilde küçült */
-    margin-bottom: 0.5rem; /* Etiket ve input arasına boşluk ekle */
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
   }
 
-  /* Form elemanları genişlik ayarlarını yapalım */
+  /* 8.6. Form Elemanları Küçültme */
   .p-inputtext, .p-textarea, .p-calendar {
-    font-size: 0.9rem; /* Form elemanlarının yazı boyutunu küçük ekranlarda küçült */
-    width: 100%; /* Genişliği %100 yapalım */
-    padding: 0.6rem; /* İç boşluğu biraz küçültelim */
+      font-size: 0.9rem;
+      width: 100%;
+      padding: 0.6rem;
   }
 
-  /* Flex düzeni ayarları */
+  /* 8.7. Flexbox Düzenlemeleri */
   .p-d-flex {
-    flex-direction: column; /* Flex elemanlarını dikeyde hizalayalım */
+      flex-direction: column;
   }
 
-  /* Sıralama ve filtreleme butonları */
+  /* 8.8. Sağ Taraftaki Kolon Düzenlemeleri */
   .p-col-12.p-md-8 {
-    width: 100%; /* Sağdaki filtreleme butonlarının genişliğini %100 yapalım */
-    margin-top: 1rem; /* Üst boşluk ekleyelim */
-    justify-content: center; /* Butonları ortalayalım */
+      width: 100%;
+      margin-top: 1rem;
+      justify-content: center;
   }
 
-  /* Görev kartlarını mobilde daha düzgün gösterelim */
+  /* 8.9. Tablo Satır Düzenlemeleri */
   .p-table .p-row {
-    display: block; /* Tablo satırlarını blok olarak düzenleyelim */
-    margin-bottom: 1rem; /* Satırların arasına boşluk ekleyelim */
+      display: block;
+      margin-bottom: 1rem;
   }
 }
