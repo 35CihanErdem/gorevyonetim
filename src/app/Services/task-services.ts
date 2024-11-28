@@ -1,51 +1,49 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { TaskItems } from './task-model';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
   private tasks: TaskItems[] = [];
-  constructor() {
-    const tasksData = localStorage.getItem('tasks');
-    if (tasksData) {
-        this.tasks = JSON.parse(tasksData);
-    }
-}
-
-  // Görevleri yerel depolamadan yükle
-  private loadTasks(): void {
-    const tasksData = localStorage.getItem('tasks'); // LocalStorage'dan veriyi al
-    if (tasksData) {
-      this.tasks = JSON.parse(tasksData); // JSON'u nesneye çevir
-    } else {
-      this.tasks = []; // Eğer veri yoksa boş bir dizi başlat
+  selectedTask: TaskItems | null = null;  // Seçilen görev
+  
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {
+    if (isPlatformBrowser(this.platformId)) {
+      const storedTasks = localStorage.getItem('tasks');
+      this.tasks = storedTasks ? JSON.parse(storedTasks) : [];
     }
   }
 
   // Tüm görevleri al
   getTasks(): TaskItems[] {
     return this.tasks;
-}
+  }
 
-
+  // Görev ekleme
   addTask(task: TaskItems): void {
     this.tasks.push(task);
     this.updateLocalStorage();
-}
+  }
 
-removeTask(taskId: number): void {
-  this.tasks = this.tasks.filter(task => task.id !== taskId); 
-  this.updateLocalStorage(); // Silinmiş listeyi kaydet
-}
+  // Görev silme
+  removeTask(taskId: number): void {
+    this.tasks = this.tasks.filter(task => task.id !== taskId); 
+    this.updateLocalStorage();
+  }
 
-  // LocalStorage'a görevleri güncelle
+  // Görev güncelleme
+  updateTask(task: TaskItems): void {
+    const index = this.tasks.findIndex(t => t.id === task.id);
+    if (index !== -1) {
+      this.tasks[index] = task;
+      this.updateLocalStorage();
+    }
+  }
+
+  // localStorage güncelleme
   private updateLocalStorage(): void {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
-}
-updateTasks(tasks: TaskItems[]): void {
-  this.tasks = tasks;
-  this.updateLocalStorage(); // Güncel görev listemizi localStorage'a kaydediyoruz
-}
-
+  }
 }

@@ -1,0 +1,59 @@
+<div class="p-d-flex p-jc-center p-ai-center p-mt-5" style="min-height: 80vh;">
+    <div class="p-col-12 p-md-6">
+        <div *ngIf="selectedTask">
+      <div class="p-field">
+        <label for="taskName">Görev Adı</label>
+        <input 
+          id="taskName"   
+          type="text" 
+          style="padding-top: 15px;padding-bottom: 10px;padding-left: 170px;padding-right: 90px;"
+          pInputText 
+          [(ngModel)]="selectedTask.name" 
+          required 
+        >
+      </div>
+  
+      <div class="p-field">
+        <label for="taskDescription" >Açıklama</label>
+        <textarea 
+          id="taskDescription" 
+          pInputTextarea 
+          [(ngModel)]="selectedTask.description" 
+          required 
+          style="padding-top: 10px;padding-bottom: 10px;padding-left: 170px;padding-right: 90px;"
+          rows="2"></textarea> <!-- 2 satır yükseklik -->
+      </div>
+  
+      <div class="p-field">
+        <label for="endDate">Bitiş Tarihi</label>
+        <p-calendar 
+          [(ngModel)]="selectedTask.endDate" 
+          [inline]="true" 
+          [showTime]="false" 
+          [minDate]="minDate" 
+          class="custom-calendar">
+        </p-calendar>
+      </div>
+      
+      <div class="p-d-flex p-jc-center p-mt-3">
+        <button 
+          pButton 
+          type="button" 
+          style="margin: 10px;"
+          label="Görevi Güncelle" 
+          class="p-button-success" 
+          (click)="updateTask()">
+        </button>
+        <button 
+          pButton 
+          type="button" 
+          style="margin: 10px;"
+          label="İptal Et" 
+          class="p-button-secondary" 
+          (click)="cancel()">
+        </button>
+      </div>
+    </div>
+    </div>
+  </div>
+  

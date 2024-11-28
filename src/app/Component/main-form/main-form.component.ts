@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, model, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TaskItems } from '../../Services/task-model';  // Görev modelini import ettik
+import { Model, TaskItems } from '../../Services/task-model';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Model } from '../../Services/task-model';
 import { TaskService } from '../../Services/task-services';
 
 @Component({
@@ -15,64 +14,61 @@ import { TaskService } from '../../Services/task-services';
   imports: [TableModule, CheckboxModule, ButtonModule, CommonModule, FormsModule],
   templateUrl: './main-form.component.html',
   styleUrls: ['./main-form.component.css'],
-  providers: [DatePipe]
+  providers: [DatePipe,Model]
 })
 export class MainFormComponent implements OnInit {
-  tasks: TaskItems[] = [];  // Görevler
-  filteredTasks: TaskItems[] = [];  // Filtrelenmiş görevler
+  tasks: TaskItems[] = [];
+  filteredTasks: TaskItems[] = []; // Filtrelenmiş görevler
+  selectedTask: TaskItems | null = null; 
 
   constructor(private router: Router, private taskService: TaskService, private datePipe: DatePipe) { }
 
   ngOnInit() {
-    // Sayfa yüklendiğinde görevleri alıyoruz
-    this.loadTasks();
+    this.tasks = this.taskService.getTasks(); // Görevleri servisten alıyoruz
+    this.filteredTasks = [...this.tasks]; // Başlangıçta tüm görevler gösterilsin
   }
 
-  loadTasks() {
-    this.tasks = this.taskService.getTasks(); // Tüm görevleri servisten al
-    this.filteredTasks = [...this.tasks];  // Başlangıçta tüm görevler gösterilsin
-  }
-
-  // Görev ekleme yönlendirme
+  // Görev ekleme sayfasına yönlendirme
   navigateToAddTask() {
-    this.router.navigate(['/task-add']); // Görev ekleme sayfasına yönlendiriyoruz
+    this.router.navigate(['/task-add']);
   }
 
-  // Görev durumunu değiştirme
-  toggleTaskStatus(task: TaskItems) {
-    task.status = !task.status;
-    this.taskService.addTask(task); // Durumu güncelliyoruz
+  // Görev düzenleme
+  editTask(task: TaskItems) {
+    this.taskService.selectedTask = { ...task }; 
+    this.router.navigate(['/task-edit']);
   }
 
   // Görev silme
   deleteTask(task: TaskItems) {
     this.taskService.removeTask(task.id); // Görevi servisten sil
-    this.loadTasks(); // Güncellenmiş görev listesini çek
+    this.loadTasks(); // Listeyi yeniden yükle
   }
 
-  // Tarih formatlama
+  // Görevleri yeniden yükleyip filtreliyoruz
+  loadTasks() {
+    this.tasks = this.taskService.getTasks();
+    this.filteredTasks = [...this.tasks]; // Başlangıçta tüm görevler gösterilsin
+  }
+
   formatDate(date: Date): string {
     return this.datePipe.transform(date, 'yyyy-MM-dd') || '';
   }
 
-  // Tarihe göre sıralama (ilk tarihli görev en üstte)
+  // Tamamlanan görevleri filtrele
+  filterCompletedTasks() {
+    this.filteredTasks = this.tasks.filter(task => task.status);
+  }
+
+  // Tamamlanmayan görevleri filtrele
+  filterIncompleteTasks() {
+    this.filteredTasks = this.tasks.filter(task => !task.status);
+  }
+
+  // Tarihe göre sıralama
   sortByDate() {
     this.filteredTasks = [...this.filteredTasks].sort((a, b) => {
-      return a.endDate.getTime() - b.endDate.getTime();  // Tarihe göre artan sıralama
+      return a.endDate.getTime() - b.endDate.getTime(); // Bitirme tarihine göre sıralama
     });
-  }
-
-  // Duruma göre sıralama (Tamamlanmış görevler üstte)
-  sortByStatus() {
-    this.filteredTasks = [...this.filteredTasks].sort((a, b) => {
-      if (a.status === b.status) return 0;
-      return a.status ? -1 : 1;  // Tamamlanmış olan görev üstte
-    });
-  }
-
-  // Görevi silme (farklı fonksiyon)
-  removeTask(taskId: number): void {
-    this.taskService.removeTask(taskId);
-    this.loadTasks(); // Güncellenen listeyi çek
   }
 }

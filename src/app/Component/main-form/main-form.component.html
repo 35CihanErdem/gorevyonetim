@@ -1,13 +1,27 @@
 <div class="p-grid p-justify-between">
-  <div class="p-col-12 p-md-4 p-d-flex p-align-center">
-    <!-- Görev Ekleme Butonu (Solda) -->
-    <button pButton type="button" label="Görev Ekle" icon="pi pi-plus" (click)="navigateToAddTask()" class="p-button-success p-mb-3"></button>
+  <!-- Sol Taraf: Görev Ekleme Butonu -->
+  <div class="p-col-12 p-md-4">
+    <button pButton type="button" label="Görev Ekle" icon="pi pi-plus" 
+      (click)="navigateToAddTask()" 
+      class="p-button-success p-mb-3"
+      style="margin-left: 20px; margin-right: 20px;">
+    </button>
   </div>
-  
-  <div class="p-col-12 p-md-4 p-d-flex p-justify-end">
-    <!-- Sıralama Butonları (Sağda) -->
-    <button pButton type="button" label="Tarihe Göre Sırala" icon="pi pi-calendar" (click)="sortByDate()" class="p-button-info p-mb-3"></button>
-    <button pButton type="button" label="Duruma Göre Sırala" icon="pi pi-check" (click)="sortByStatus()" class="p-button-info p-mb-3"></button>
+
+  <!-- Sağ Taraf: Filtreleme ve Sıralama Butonları -->
+  <div class="p-col-12 p-md-8 p-d-flex p-justify-end">
+    <button pButton type="button" label="Tamamlanan Görevler" icon="pi pi-check" 
+      (click)="filterCompletedTasks()" 
+      class="p-button-info p-mb-3 p-button-sm p-mr-2">  
+    </button>
+    <button pButton type="button" label="Tamamlanmayan Görevler" icon="pi pi-times" 
+      (click)="filterIncompleteTasks()" 
+      class="p-button-info p-mb-3 p-button-sm p-mr-2">
+    </button>
+    <button pButton type="button" label="Tarihe Göre Sırala" icon="pi pi-calendar" 
+      (click)="sortByDate()" 
+      class="p-button-info p-mb-3 p-button-sm">
+    </button>
   </div>
 </div>
 
@@ -21,6 +35,7 @@
       <th>Bitiş Tarihi</th>
       <th>Durum</th>
       <th>Sil</th>
+      <th>Düzenle</th> <!-- Düzenle başlığı -->
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-task>
@@ -34,6 +49,9 @@
       </td>
       <td>
         <button pButton type="button" label="Sil" icon="pi pi-trash" class="p-button-danger" (click)="deleteTask(task)"></button>
+      </td>
+      <td>
+        <button pButton type="button" label="Düzenle" icon="pi pi-pencil" class="p-button-warning" (click)="editTask(task)"></button> <!-- Düzenle butonu -->
       </td>
     </tr>
   </ng-template>

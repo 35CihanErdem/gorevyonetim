@@ -18,6 +18,5 @@ export class TaskItems {
 
 export class Model {
   items: TaskItems[] = [
-    new TaskItems(1, 'Görev 1', 'Açıklama 1', new Date(), true, new Date('2024-12-31'))
   ];
-}
+} 

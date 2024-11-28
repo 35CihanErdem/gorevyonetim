@@ -94,3 +94,62 @@ label {
     padding: 0.6rem 1.5rem;
   }
 }
+@media screen and (max-width: 768px) {
+  /* Butonlar arasındaki mesafeyi biraz daha açalım */
+  .p-d-flex .p-button-sm {
+    font-size: 0.8rem; /* Buton metni küçük ekranlarda daha küçük olsun */
+    padding: 0.4rem 0.8rem; /* Buton içindeki padding'i küçült */
+  }
+
+  .p-d-flex .p-button-sm + .p-button-sm {
+    margin-left: 10px; /* Butonlar arasına biraz daha boşluk ekle */
+  }
+
+  /* Görev ekle butonunu daha geniş yapalım */
+  .p-col-12.p-md-4 button {
+    width: 100%; /* Buton genişliğini mobilde %100 yapalım */
+    font-size: 1rem; /* Buton yazı boyutunu büyüt */
+  }
+
+  /* Görev Tablosu */
+  p-table {
+    font-size: 0.9rem; /* Tablo metnini küçült */
+  }
+
+  /* Tablo başlıkları ve içerik daha küçük ekranlarda daha küçük yazı tipiyle görünsün */
+  p-table th, p-table td {
+    font-size: 0.9rem;
+    padding: 0.5rem; /* Hücre içindeki padding'i küçült */
+  }
+
+  /* Başlık ve etiket boyutları */
+  label {
+    font-size: 1rem; /* Etiketlerin boyutunu mobilde küçült */
+    margin-bottom: 0.5rem; /* Etiket ve input arasına boşluk ekle */
+  }
+
+  /* Form elemanları genişlik ayarlarını yapalım */
+  .p-inputtext, .p-textarea, .p-calendar {
+    font-size: 0.9rem; /* Form elemanlarının yazı boyutunu küçük ekranlarda küçült */
+    width: 100%; /* Genişliği %100 yapalım */
+    padding: 0.6rem; /* İç boşluğu biraz küçültelim */
+  }
+
+  /* Flex düzeni ayarları */
+  .p-d-flex {
+    flex-direction: column; /* Flex elemanlarını dikeyde hizalayalım */
+  }
+
+  /* Sıralama ve filtreleme butonları */
+  .p-col-12.p-md-8 {
+    width: 100%; /* Sağdaki filtreleme butonlarının genişliğini %100 yapalım */
+    margin-top: 1rem; /* Üst boşluk ekleyelim */
+    justify-content: center; /* Butonları ortalayalım */
+  }
+
+  /* Görev kartlarını mobilde daha düzgün gösterelim */
+  .p-table .p-row {
+    display: block; /* Tablo satırlarını blok olarak düzenleyelim */
+    margin-bottom: 1rem; /* Satırların arasına boşluk ekleyelim */
+  }
+}
