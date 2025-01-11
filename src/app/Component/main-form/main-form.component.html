@@ -1,5 +1,5 @@
-<div class="p-grid p-justify-between">
-  <!--  Görev Ekleme Butonu -->
+ <!-- <div class="p-grid p-justify-between">
+ 
   <div class="p-col-12 p-md-4">
     <button pButton type="button" label="Görev Ekle" icon="pi pi-plus" 
       (click)="navigateToAddTask()" 
@@ -8,7 +8,6 @@
     </button>
   </div>
 
-  <!--Filtreleme ve Sıralama Butonları -->
   <div class="p-col-12 p-md-8 p-d-flex p-justify-end">
     <button pButton type="button" label="Tamamlanan Görevler" icon="pi pi-check" 
       (click)="filterCompletedTasks()" 
@@ -22,10 +21,10 @@
       (click)="sortByDate()" 
       class="p-button-info p-mb-3 p-button-sm">
     </button>
+
   </div>
 </div>
 
-<!-- Görev Tablosu -->
 <p-table [value]="filteredTasks" [paginator]="true" [rows]="5" [responsiveLayout]="'scroll'">
   <ng-template pTemplate="header">
     <tr>
@@ -51,8 +50,11 @@
         <button pButton type="button" label="Sil" icon="pi pi-trash" class="p-button-danger" (click)="deleteTask(task)"></button>
       </td>
       <td>
-        <button pButton type="button" label="Düzenle" icon="pi pi-pencil" class="p-button-warning" (click)="editTask(task)"></button> <!-- Düzenle butonu -->
+        <button pButton type="button" label="Düzenle" icon="pi pi-pencil" class="p-button-warning" (click)="editTask(task)"></button> 
       </td>
     </tr>
   </ng-template>
-</p-table>
+</p-table>  -->
+
+
+<app-table></app-table>

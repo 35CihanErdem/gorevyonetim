@@ -1,0 +1,29 @@
+<p-table [value]="tableData" [responsiveLayout]="'scroll'">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData>
+      <tr>
+        <td>{{ rowData.name }}</td>
+        <td>{{ rowData.age }}</td>
+        <td>
+          <button pButton type="button" label="Show Details" (click)="showCard(rowData)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  
+  <div *ngIf="selectedRow" class="card-container">
+    <p-card>
+      <ng-template pTemplate="title">{{ selectedRow.name }}'s Details</ng-template>
+      <ng-template pTemplate="content">
+        <p>Age: {{ selectedRow.age }}</p>
+        <p>Additional Info: {{ selectedRow.info }}</p>
+      </ng-template>
+    </p-card>
+  </div>
+  

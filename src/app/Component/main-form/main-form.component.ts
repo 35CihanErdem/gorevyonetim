@@ -7,11 +7,12 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TaskService } from '../../Services/task-services';
+import { TableComponent } from "../table/table.component";
 
 @Component({
   selector: 'app-main-form',
   standalone: true,
-  imports: [TableModule, CheckboxModule, ButtonModule, CommonModule, FormsModule],
+  imports: [TableModule, CheckboxModule, ButtonModule, CommonModule, FormsModule, TableComponent],
   templateUrl: './main-form.component.html',
   styleUrls: ['./main-form.component.css'],
   providers: [DatePipe,Model]
@@ -25,8 +26,16 @@ export class MainFormComponent implements OnInit {
 
   ngOnInit() {
     this.tasks = this.taskService.getTasks(); // Görevleri servisten alıyoruz
-    this.filteredTasks = [...this.tasks]; // Başlangıçta tüm görevler gösterilsin
+    this.filteredTasks = [...this.tasks]; 
+ 
+    
   }
+
+  // Görev durumunu değiştirme
+toggleTaskStatus(task: TaskItems) {
+  task.status = !task.status; // Durumu tersine çevir
+  this.taskService.saveTaskStatus(task.id, task.status); // Durumu kaydet
+}
 
   // Görev ekleme sayfasına yönlendirme
   navigateToAddTask() {
@@ -71,4 +80,6 @@ export class MainFormComponent implements OnInit {
       return a.endDate.getTime() - b.endDate.getTime(); // Bitirme tarihine göre sıralama
     });
   }
+  
+  
 }
